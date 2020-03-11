@@ -1,15 +1,17 @@
 package nameGenerator;
 
 import java.util.Random;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class generatorFunctions {
 
 	private static Random rand = new Random();
 	
+	//private static Function
 	public static String russian()
 	{
-
 		String russianName = "";
 		String ruFirst = "";
 		String ruPat = "";
@@ -23,37 +25,26 @@ public class generatorFunctions {
 		russianName = ruFirst + ruLast + ruPat;
 		
 		return russianName;
-		
 	}
 	
 	public static String dutch()
 	{
 		
 		String dutchName = "";
-		String[] nlFirstArray = {};
-		String nlLast = "";
+		List<String> names = new ArrayList<String>();
+		String[] namesLeft = {};
 		
-		//random number for loop
-		//int nameNo = (int) (Math.random() * (4 - 1) + 1);
-		int nameNo = 1;
-		//loop that picks between 2 and 4 names from array
-		//for (int i = nameNo; i <= 3; i++) 
-		//{
-		//	nlFirst = nlFirst + namesArray.dutchFirstName[rand.nextInt(namesArray.dutchFirstName.length)] + " ";
-		//};
-		
-		for (int i = nameNo; i <= 3; i++) 
-		{
-			String [] nlFirstTwee = Arrays.stream(namesArray.dutchFirstName).distinct().toArray(String[]::new);
+		for (int i = 0; i < rand.nextInt(3) + 1; i++) {
+			namesLeft = Arrays.stream(namesArray.dutchFirstName).filter(s -> {
+				return !names.contains(s);
+			}).toArray(String[]::new);
 			
-			nlFirstArray = nlFirstTwee;
-			
-		};
+			String name = namesLeft[rand.nextInt(namesLeft.length)];
+			names.add(name);
+			dutchName += name + " ";
+		}
 		
-		String nlFirstString = String.join(" ", nlFirstArray);
-		
-		dutchName = nlFirstString;
-		
+		dutchName += namesArray.dutchLastName[rand.nextInt(namesArray.dutchLastName.length)];
 		return dutchName;
 	}
 	
@@ -70,3 +61,12 @@ public class generatorFunctions {
 	}
 	
 }
+
+//random number for loop
+		//int nameNo = (int) (Math.random() * (4 - 1) + 1);
+		//int nameNo = 1;
+		//loop that picks between 2 and 4 names from array
+		//for (int i = nameNo; i <= 3; i++) 
+		//{
+		//	nlFirst = nlFirst + namesArray.dutchFirstName[rand.nextInt(namesArray.dutchFirstName.length)] + " ";
+		//};

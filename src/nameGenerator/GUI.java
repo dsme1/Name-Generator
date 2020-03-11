@@ -24,6 +24,7 @@ public class GUI {
 		JTextArea textArea = new JTextArea(10, 40);
 		JPanel botPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JButton buttonRussian = new JButton("Russian");
+		JButton buttonDutch = new JButton("Dutch");
 		JScrollPane scrollbar = new JScrollPane(text);
 		
 		//frame size and location
@@ -32,6 +33,7 @@ public class GUI {
 	    
 	    //buttonpanel
 	    botPanel.add(buttonRussian);
+	    botPanel.add(buttonDutch);
 	    botPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	    f.add(botPanel, BorderLayout.SOUTH);
 	    
@@ -49,6 +51,13 @@ public class GUI {
 	            textArea.append(russian + "\n");
 	
 	        }
+	    });
+	    
+	    buttonDutch.addActionListener(new ActionListener() {
+	    	
+	    	public void actionPerformed(ActionEvent e) {
+	    		String dutch = generatorFunctions.dutch();
+	    		textArea.append(dutch + "\n");}
 	    });
 	  
 	    f.setVisible(true);
