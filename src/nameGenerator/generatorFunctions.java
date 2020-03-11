@@ -61,12 +61,3 @@ public class generatorFunctions {
 	}
 	
 }
-
-//random number for loop
-		//int nameNo = (int) (Math.random() * (4 - 1) + 1);
-		//int nameNo = 1;
-		//loop that picks between 2 and 4 names from array
-		//for (int i = nameNo; i <= 3; i++) 
-		//{
-		//	nlFirst = nlFirst + namesArray.dutchFirstName[rand.nextInt(namesArray.dutchFirstName.length)] + " ";
-		//};
