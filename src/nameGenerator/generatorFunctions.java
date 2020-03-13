@@ -29,12 +29,12 @@ public class generatorFunctions {
 	
 	public static String dutch()
 	{
-		
 		String dutchName = "";
-		List<String> names = new ArrayList<String>();
 		String[] namesLeft = {};
+		List<String> names = new ArrayList<String>();
 		
-		for (int i = 0; i < rand.nextInt(3) + 1; i++) {
+		for (int i = 0; i < rand.nextInt(3) + 1; i++) 
+		{
 			namesLeft = Arrays.stream(namesArray.dutchFirstName).filter(s -> {
 				return !names.contains(s);
 			}).toArray(String[]::new);
@@ -48,13 +48,36 @@ public class generatorFunctions {
 		return dutchName;
 	}
 	
+	public static String french()
+	{
+		String frenchName = "";
+		String[] namesLeft = {};
+		List<String> names = new ArrayList<String>();
+		
+		for (int i = 0; i < rand.nextInt(6) + 1; i++)
+		{
+			namesLeft = Arrays.stream(namesArray.frenchFirstName).filter(s -> {
+				return !names.contains(s);
+			}).toArray(String[]::new);
+			
+			String name = namesLeft[rand.nextInt(namesLeft.length)];
+			names.add(name);
+			frenchName += name + " ";
+		}
+		
+		frenchName += namesArray.frenchLastName[rand.nextInt(namesArray.frenchLastName.length)];
+		return frenchName;
+	}
+	
 	public static void main(String[] args) {
 	
 		String russianName = russian();
 		String dutchName = dutch();
+		String frenchName = french();
 		
 		System.out.println(russianName);
 		System.out.println(dutchName);
+		System.out.println(frenchName);
 		
 		
 		
